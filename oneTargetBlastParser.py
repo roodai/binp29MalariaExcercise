@@ -7,6 +7,7 @@ Created on Wed Mar  2 11:41:59 2022
 """
 #Produce the query and top target is any target is present
 #Ran as such: python oneTargetBlastParset.py input output
+
 #open input and output file
 import sys
 with open(sys.argv[1], 'r') as blastfile, open(sys.argv[2], 'w') as outfile:

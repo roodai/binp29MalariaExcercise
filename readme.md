@@ -1,6 +1,20 @@
+# Malaria Case Study
+A phylogenetic analysis of malaria parasites
+## Software used
+GeneMark-ES Suite 4.62\
+BLAST 2.11.0+\
+Proteinortho 6.0.33\
+BUSCO 5.3.0
+## Outline
+- Annotate genomes with GeneMark
+- Filter genes based on GC-content and minimun sequence length
+- Perform BLAST search on filtered sequences
+- Filter host sequences from parastes based on BLAST results and taxonomy databases
+- Identify orthologs with Proteinortho and BUSCO
+- Produce genes corresponding to common BUSCOs in all species
 
-
-Genes were predicted in the Plasmodium vivax genome using GeneMark-ES Suite version 4.62 and with default parameters:
+## Procedure
+Genes were predicted in the Plasmodium vivax genome using GeneMark and with default parameters:
 
 
 ```shell
@@ -80,12 +94,12 @@ gmes_petap.pl --sequence noAvesHemo.fasta --ES -min_contig 5000
 
 Nucleotide and amino acid seuquences were made from the fasta and annotation files for all plasmodia, toxoplasma gondii and the avian origin filtered haemoproteus, with gffParse.pl. Just like before sed editing was performed.
 
-Proteinortho version 6.0.33 was used to determine otrhologs for all species.
+Proteinortho was used to determine otrhologs for all species.
 
 ```shell
 nohup proteinortho6.pl {Ht,Pb,Pc,Pf,Pk,Pv,Py,Tg}.faa &
 ```
-Busco version 5.3.0 was used to generate orhtologs for all species thusly:
+Busco was used to generate orhtologs for all species thusly:
 
 ```shell
 busco -i species.faa -o species -m prot -l apicomplexa
